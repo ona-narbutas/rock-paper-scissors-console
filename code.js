@@ -19,7 +19,7 @@ function askPlayer() {
     return output;
 }
 
-playerSelection()
+playerSelection = askPlayer();
 
 //Create variable computerChoice
 //Generate random number 3 times, storing each in variables random1, random2, and random3, respectively
@@ -58,7 +58,7 @@ function computerPlay() {
     return output;
 }
 
-computerPlay();
+computerChoice = computerPlay();
 
 //Compare playerChoice to computerChoice as follows:
 //If playerChoice is equal to computerChoice, return 'It's a tie!' and go back to start
@@ -66,7 +66,7 @@ computerPlay();
 //Else return 'you lose' and go back to start. **repeating go back to starts suggest switch statement may be best**
 //Repeat per RPS rules for cases of playerChoice 'scissors' and 'paper'.
 
-function rockPaperScissors(playerSelection, computerChoice) {
+function oneRound(playerSelection, computerChoice) {
     let result;
     
     if (playerSelection == computerChoice) {
