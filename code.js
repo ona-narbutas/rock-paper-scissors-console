@@ -10,7 +10,39 @@ console.log("Hello world!");
 //If random1 is higher than random2 or random3, set computerChoice to string 'rock.'
     //Else if random2 is highest, set computerChoice to string 'scissors'
     //Else if random3 is highest, set computerChoice to string 'paper'
+    //Else if there is a tie for highest value, reroll.
 
+function computerPlay() {
+
+    let output;
+    let keepGoing = false
+
+    do {
+        let random1 = Math.random();
+        let random2 = Math.random();
+        let random3 = Math.random();
+
+        console.log(random1 + ' ' + random2 + ' ' + random3);
+
+        if (random1 > random2 && random1 > random3) {
+            output = 'rock';
+            keepGoing = false;
+        } else if (random2 > random1 && random2 > random3) {
+            output = 'paper';
+            keepGoing = false;
+        } else if (random3 > random1 && random3 > random2) {
+            output = 'scissors';
+            keepGoing = false;
+        } else keepGoing = true;
+
+        console.log(output + '\n' + keepGoing);
+
+    } while (keepGoing == true);
+
+    return output;
+}
+
+computerPlay();
 
 //Log playerChoice and computerChoice to console.
 
