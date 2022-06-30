@@ -19,7 +19,7 @@ function askPlayer() {
     return output;
 }
 
-playerSelection = askPlayer();
+
 
 //Create variable computerChoice
 //Generate random number 3 times, storing each in variables random1, random2, and random3, respectively
@@ -58,7 +58,6 @@ function computerPlay() {
     return output;
 }
 
-computerChoice = computerPlay();
 
 //Compare playerChoice to computerChoice as follows:
 //If playerChoice is equal to computerChoice, return 'It's a tie!' and go back to start
@@ -66,10 +65,10 @@ computerChoice = computerPlay();
 //Else return 'you lose' and go back to start. **repeating go back to starts suggest switch statement may be best**
 //Repeat per RPS rules for cases of playerChoice 'scissors' and 'paper'.
 
-function oneRound(playerSelection, computerChoice) {
+function playRound(playerSelection, computerChoice) {
     let result;
     
-    if (playerSelection == computerChoice) {
+    if (playerSelection === computerChoice) {
         result = 'It\'s a tie!';
         return result;
     } else switch(playerSelection) {
@@ -81,7 +80,7 @@ function oneRound(playerSelection, computerChoice) {
 
         case 'paper':
             computerChoice == 'rock' ? result = `You win! ${playerSelection} beats ${computerChoice}.`
-            : console.log(`You lose. ${computerChoice} beats ${playerSelection}.`);
+            : result = `You lose. ${computerChoice} beats ${playerSelection}.`;
             return result;
             break;
 
@@ -93,3 +92,47 @@ function oneRound(playerSelection, computerChoice) {
 
     }
 }
+
+//Create variable playerScore and variable computerScore and set both to 0
+//call playRound. Increase playerScore or computerScore depending on who wins 
+    //(get slice first five characters of playRound()'s return value to determine who won)
+//Repeat for a total of five games
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+
+    for (let i = 0; i < 5; i++) {
+
+        let playerSelection = askPlayer();
+        let computerSelection = computerPlay();
+
+        let winner = playRound(playerSelection, computerSelection);
+        console.log(winner)
+        
+        console.log(typeof(winner));
+
+        winnerSub = winner.slice(0, 5);
+
+        console.log(winnerSub);
+
+        if (winnerSub === 'You w') {
+            playerScore = playerScore++;
+        } else if (winnerSub === 'You l') {
+            computerScore = computerScore++;
+        }
+
+        console.log(`The score is: You: ${playerScore}. Computer: ${computerScore}.`);
+
+    }
+
+    if (playerScore > computerScore) {
+        console.log(`You won best of 5!`)
+    } else if (computerScore > playerScore) {
+        console.log(`The computer won best of 5.`)
+    } else {
+        console.log(`At the end of five rounds, just a stalemate...`)
+    }
+}
+
+game();
