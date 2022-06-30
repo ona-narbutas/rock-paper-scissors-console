@@ -1,5 +1,5 @@
 //Including just to confirm code.js is properly linked into index.html
-console.log("Hello world!");
+//console.log("Hello world!");
 
 //Ask user to input rock/paper/scissors and store response as string in variable playerChoice
 //Convert playerChoice to all lowercase
@@ -110,16 +110,16 @@ function game() {
         let winner = playRound(playerSelection, computerSelection);
         console.log(winner)
         
-        console.log(typeof(winner));
+        //console.log(typeof(winner));
 
         winnerSub = winner.slice(0, 5);
 
-        console.log(winnerSub);
+        //console.log(winnerSub);
 
         if (winnerSub === 'You w') {
-            playerScore = playerScore++;
+            playerScore = ++playerScore;
         } else if (winnerSub === 'You l') {
-            computerScore = computerScore++;
+            computerScore = ++computerScore;
         }
 
         console.log(`The score is: You: ${playerScore}. Computer: ${computerScore}.`);
